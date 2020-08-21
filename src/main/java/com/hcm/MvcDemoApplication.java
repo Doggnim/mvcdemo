@@ -1,8 +1,8 @@
 package com.hcm;
 
-import com.hcm.controller.HelloController;
+import com.hcm.controller.UserController;
+import com.hcm.entity.User;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -14,7 +14,8 @@ public class MvcDemoApplication {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 "applicationContext.xml");
-        HelloController helloController = (HelloController) context.getBean("HelloController");
-        helloController.sayHello();
+        UserController userController = context.getBean(UserController.class);
+        User user = userController.getUserById(4);
+        System.out.println(user);
     }
 }

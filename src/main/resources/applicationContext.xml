@@ -20,12 +20,12 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <mvc:annotation-driven/>
+<!--    <mvc:annotation-driven/>-->
 
     <!--sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--加载mybatis配置文件-->
-        <property name="configLocation" value="WEB-INF/mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <!--数据源-->
         <property name="dataSource" ref="dataSource"/>
         <!--扫描mapper文件-->
